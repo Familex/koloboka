@@ -28,23 +28,41 @@ namespace Player
         // Update is called once per frame
         private void Update()
         {
-            if (Input.GetKey(forwardKey))
+            // Debug.Log(_rigidbody.rotation.eulerAngles);
+            
+            // Move and rotate
             {
-                _rigidbody.AddForce(0, 0, Speed);
-            }
-            if (Input.GetKey(leftKey))
-            {
-                _rigidbody.AddForce(-Speed, 0, 1);
-            }
-            if (Input.GetKey(rightKey))
-            {
-                _rigidbody.AddForce(Speed, 0, 0);
-            }
-            if (Input.GetKey(backwardKey))
-            {
-                _rigidbody.AddForce(0, 0, -Speed);
-            }
+                var resultForce = new Vector3();
 
+                if (Input.GetKey(forwardKey))
+                {
+                    resultForce += _rigidbody.transform.forward;
+                }
+
+                if (Input.GetKey(backwardKey))
+                {
+                    resultForce -= _rigidbody.transform.forward;
+                }
+
+                if (Input.GetKey(leftKey))
+                {
+                    resultForce -= _rigidbody.transform.right;
+                }
+
+                if (Input.GetKey(rightKey))
+                {
+                    resultForce += _rigidbody.transform.right;
+                }
+
+                // Reverse input if object is upside down
+                if (Vector3.Dot(transform.up, Vector3.down) > 0)
+                {
+                    resultForce *= -1;
+                }
+                
+                _rigidbody.AddForce(resultForce);
+            }
+            
             if (Input.GetKey(KeyCode.Alpha1))
             {
                 firstPersonView.enabled = true;
