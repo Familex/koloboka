@@ -7,6 +7,13 @@ namespace Player
         private Rigidbody _rigidbody;
         private const float Speed = 3;
         
+        #region Keys
+        [SerializeField] private KeyCode forward_key = KeyCode.W;
+        [SerializeField] private KeyCode backward_key = KeyCode.S;
+        [SerializeField] private KeyCode left_key = KeyCode.A;
+        [SerializeField] private KeyCode right_key = KeyCode.D;
+        #endregion
+        
         // Start is called before the first frame update
         private void Start()
         {
@@ -16,21 +23,21 @@ namespace Player
         // Update is called once per frame
         private void Update()
         {
-            if (Input.GetKey(KeyCode.W))
+            if (Input.GetKey(forward_key))
             {
                 _rigidbody.AddForce(0, 0, Speed);
             }
-            if (Input.GetKey(KeyCode.A))
+            if (Input.GetKey(left_key))
             {
                 _rigidbody.AddForce(-Speed, 0, 1);
             }
-            if (Input.GetKey(KeyCode.S))
+            if (Input.GetKey(right_key))
             {
                 _rigidbody.AddForce(Speed, 0, 0);
             }
-            if (Input.GetKey(KeyCode.R))
+            if (Input.GetKey(backward_key))
             {
-                _rigidbody.AddForce(0, -Speed, 0);
+                _rigidbody.AddForce(0, 0, -Speed);
             }
         }
     }
