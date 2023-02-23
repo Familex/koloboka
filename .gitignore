@@ -64,3 +64,4 @@ Release/
 
 #### Blender temp files
 *.blend1
+*.blend1.meta
