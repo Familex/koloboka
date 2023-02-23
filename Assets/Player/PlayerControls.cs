@@ -61,6 +61,8 @@ namespace Player
                 }
 
                 resultForce *= force;
+
+                resultForce.y = 0;  // todo maybe should project resultForce to oXZ plane?
                 
                 _rigidbody.AddForce(resultForce);
             }
