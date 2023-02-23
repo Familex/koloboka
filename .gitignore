@@ -60,3 +60,7 @@ crashlytics-build.properties
 
 #### Deploy folder
 Release/
+
+
+#### Blender temp files
+*.blend1

@@ -471,7 +471,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: c2ac06654310d3f4f857c08b92e103cc, type: 3}
       propertyPath: m_Name
-      value: base
+      value: Canyon
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c2ac06654310d3f4f857c08b92e103cc, type: 3}
