@@ -8,6 +8,7 @@ namespace Player
         [SerializeField] private float indentFromPlayer = 10;
         [SerializeField] private float height = 1;
         [SerializeField] private float rotationInterpolation = 100;
+        [SerializeField] private bool rotateToPlayer = true;
         
         private Vector3 _prevPlayerPos;
 
@@ -29,7 +30,7 @@ namespace Player
                 cameraTransform.position = playerPosition + delta;
             }
             // Camera rotate
-            {
+            if (rotateToPlayer) {
                 cameraTransform.rotation = Quaternion.Slerp(cameraTransform.rotation,
                     Quaternion.LookRotation(playerPosition - cameraTransform.position), Time.deltaTime * rotationInterpolation);
             }
