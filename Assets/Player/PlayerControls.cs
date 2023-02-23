@@ -6,9 +6,9 @@ namespace Player
     {
         [SerializeField] private Camera firstPersonView;
         [SerializeField] private Camera thirdPersonView;
+        [SerializeField] private float force = 10;
         
         private Rigidbody _rigidbody;
-        private const float Speed = 1;
         
         #region Keys
         [SerializeField] private KeyCode forwardKey = KeyCode.W;
@@ -60,7 +60,7 @@ namespace Player
                     resultForce *= -1;
                 }
 
-                resultForce *= Speed;
+                resultForce *= force;
                 
                 _rigidbody.AddForce(resultForce);
             }

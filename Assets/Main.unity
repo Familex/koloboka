@@ -921,7 +921,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6423021946500560527, guid: b3860671b73b8c3498d6c341d9737159, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -181.41
+      value: -205.64
       objectReference: {fileID: 0}
     - target: {fileID: 6423021946500560527, guid: b3860671b73b8c3498d6c341d9737159, type: 3}
       propertyPath: m_LocalPosition.y
@@ -961,7 +961,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6423021947370796906, guid: b3860671b73b8c3498d6c341d9737159, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.214
+      value: 0.471
       objectReference: {fileID: 0}
     - target: {fileID: 6423021947370796909, guid: b3860671b73b8c3498d6c341d9737159, type: 3}
       propertyPath: m_HDR
@@ -971,6 +971,10 @@ PrefabInstance:
       propertyPath: m_AllowMSAA
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6423021947370796909, guid: b3860671b73b8c3498d6c341d9737159, type: 3}
+      propertyPath: near clip plane
+      value: 0.01
+      objectReference: {fileID: 0}
     - target: {fileID: 6423021947772993418, guid: b3860671b73b8c3498d6c341d9737159, type: 3}
       propertyPath: m_HDR
       value: 0
@@ -978,6 +982,14 @@ PrefabInstance:
     - target: {fileID: 6423021947772993418, guid: b3860671b73b8c3498d6c341d9737159, type: 3}
       propertyPath: m_AllowMSAA
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6423021948472507404, guid: b3860671b73b8c3498d6c341d9737159, type: 3}
+      propertyPath: force
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6423021948472507405, guid: b3860671b73b8c3498d6c341d9737159, type: 3}
+      propertyPath: m_Mass
+      value: 0.5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b3860671b73b8c3498d6c341d9737159, type: 3}
