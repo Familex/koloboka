@@ -4,9 +4,8 @@ namespace Player
 {
     public class PlayerControls : MonoBehaviour
     {
-        [SerializeField] private Camera firstPersonView;
-        [SerializeField] private Camera thirdPersonView;
         [SerializeField] private float force = 10;
+        [SerializeField] private float rotationSpeed = 1;
         
         private Rigidbody _rigidbody;
         
@@ -17,64 +16,54 @@ namespace Player
         [SerializeField] private KeyCode rightKey = KeyCode.D;
         #endregion
         
-        // Start is called before the first frame update
         private void Start()
         {
-            firstPersonView.enabled = true;
-            thirdPersonView.enabled = false;
             _rigidbody = GetComponent<Rigidbody>();
         }
 
-        // Update is called once per frame
         private void Update()
         {
-            // Debug.Log(_rigidbody.rotation.eulerAngles);
+            Debug.Log(_rigidbody.rotation.eulerAngles);
             
             // Move and rotate
             {
-                var resultForce = new Vector3();
-
+                var deltaForce = new Vector3();
+                var deltaRotate = new Vector3();
+                var rotation = transform.rotation;
+                var rotationX = rotation.x;
+                var rotationY = rotation.y;
+                var forward = new Vector3(
+                    Mathf.Sin(rotationY + rotationX),
+                    0,
+                    Mathf.Cos(rotationY + rotationX)
+                );
+                
                 if (Input.GetKey(forwardKey))
                 {
-                    resultForce += _rigidbody.transform.forward;
+                    deltaForce += forward;
                 }
 
                 if (Input.GetKey(backwardKey))
                 {
-                    resultForce -= _rigidbody.transform.forward;
+                    deltaForce -= forward;
                 }
 
                 if (Input.GetKey(leftKey))
                 {
-                    resultForce -= _rigidbody.transform.right;
+                    deltaRotate.y -= Time.deltaTime * rotationSpeed;
                 }
 
                 if (Input.GetKey(rightKey))
                 {
-                    resultForce += _rigidbody.transform.right;
+                    deltaRotate.y += Time.deltaTime * rotationSpeed;
                 }
-
-                // Reverse input if object is upside down
-                if (Vector3.Dot(transform.up, Vector3.down) > 0)
-                {
-                    resultForce *= -1;
-                }
-
-                resultForce *= force;
-
-                resultForce.y = 0;  // todo maybe should project resultForce to oXZ plane?
                 
-                _rigidbody.AddForce(resultForce);
-            }
-            
-            if (Input.GetKey(KeyCode.Alpha1))
-            {
-                firstPersonView.enabled = true;
-                thirdPersonView.enabled = false;
-            } else if (Input.GetKey(KeyCode.Alpha2))
-            {
-                firstPersonView.enabled = false;
-                thirdPersonView.enabled = true;
+                deltaForce *= force;
+
+                Debug.DrawRay(transform.position, deltaForce, Color.magenta);
+                
+                _rigidbody.AddForce(deltaForce);
+                _rigidbody.transform.Rotate(deltaRotate);
             }
         }
     }
