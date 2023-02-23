@@ -5,9 +5,9 @@ namespace Player
     public class CameraFollow : MonoBehaviour
     {
         [SerializeField] private GameObject player;
-        [SerializeField] private float indentFromPlayer;
-        [SerializeField] private float height;
-        [SerializeField] private float rotationInterpolation = 3;
+        [SerializeField] private float indentFromPlayer = 10;
+        [SerializeField] private float height = 1;
+        [SerializeField] private float rotationInterpolation = 100;
         
         private Vector3 _prevPlayerPos;
 
