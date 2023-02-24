@@ -67,3 +67,7 @@ Release/
 *.blend.meta
 *.blend1
 *.blend1.meta
+
+#### Unity samples
+Assets/Samples/
+Assets/Samples.meta

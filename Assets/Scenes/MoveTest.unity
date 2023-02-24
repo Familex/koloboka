@@ -770,9 +770,33 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6423021948472507404, guid: b3860671b73b8c3498d6c341d9737159, type: 3}
+      propertyPath: i
+      value: 
+      objectReference: {fileID: -944628639613478452, guid: 51583789e5bb11b4aae27e7829765e52, type: 3}
+    - target: {fileID: 6423021948472507404, guid: b3860671b73b8c3498d6c341d9737159, type: 3}
+      propertyPath: i.m_Id
+      value: 5737b2f9-20c9-43e9-9d2f-48b24f2aefb6
+      objectReference: {fileID: 0}
+    - target: {fileID: 6423021948472507404, guid: b3860671b73b8c3498d6c341d9737159, type: 3}
+      propertyPath: i.m_Name
+      value: I
+      objectReference: {fileID: 0}
+    - target: {fileID: 6423021948472507404, guid: b3860671b73b8c3498d6c341d9737159, type: 3}
+      propertyPath: inputAction
+      value: 
+      objectReference: {fileID: -944628639613478452, guid: 51583789e5bb11b4aae27e7829765e52, type: 3}
+    - target: {fileID: 6423021948472507404, guid: b3860671b73b8c3498d6c341d9737159, type: 3}
       propertyPath: rotationSpeed
       value: 50
       objectReference: {fileID: 0}
+    - target: {fileID: 6423021948472507404, guid: b3860671b73b8c3498d6c341d9737159, type: 3}
+      propertyPath: cameras.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6423021948472507404, guid: b3860671b73b8c3498d6c341d9737159, type: 3}
+      propertyPath: cameras.Array.data[2]
+      value: 
+      objectReference: {fileID: 1576623152}
     - target: {fileID: 6672415020902361433, guid: b3860671b73b8c3498d6c341d9737159, type: 3}
       propertyPath: cameras.Array.size
       value: 3
@@ -787,7 +811,7 @@ PrefabInstance:
       objectReference: {fileID: 853664581}
     - target: {fileID: 6672415020902361433, guid: b3860671b73b8c3498d6c341d9737159, type: 3}
       propertyPath: cameras.Array.data[0].key
-      value: 49
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 6672415020902361433, guid: b3860671b73b8c3498d6c341d9737159, type: 3}
       propertyPath: cameras.Array.data[1].cam
@@ -795,7 +819,7 @@ PrefabInstance:
       objectReference: {fileID: 77880443}
     - target: {fileID: 6672415020902361433, guid: b3860671b73b8c3498d6c341d9737159, type: 3}
       propertyPath: cameras.Array.data[1].key
-      value: 50
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 6672415020902361433, guid: b3860671b73b8c3498d6c341d9737159, type: 3}
       propertyPath: cameras.Array.data[2].cam
@@ -803,8 +827,44 @@ PrefabInstance:
       objectReference: {fileID: 1576623152}
     - target: {fileID: 6672415020902361433, guid: b3860671b73b8c3498d6c341d9737159, type: 3}
       propertyPath: cameras.Array.data[2].key
-      value: 51
+      value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 6672415020902361433, guid: b3860671b73b8c3498d6c341d9737159, type: 3}
+      propertyPath: cameras.Array.data[2].key.m_Id
+      value: 02b80c7b-c4e8-4034-abc4-883786d4657c
+      objectReference: {fileID: 0}
+    - target: {fileID: 6672415020902361433, guid: b3860671b73b8c3498d6c341d9737159, type: 3}
+      propertyPath: cameras.Array.data[2].key.m_Name
+      value: Key
+      objectReference: {fileID: 0}
+    - target: {fileID: 6672415020902361433, guid: b3860671b73b8c3498d6c341d9737159, type: 3}
+      propertyPath: cameras.Array.data[2].key.m_SingletonActionBindings.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6672415020902361433, guid: b3860671b73b8c3498d6c341d9737159, type: 3}
+      propertyPath: cameras.Array.data[2].key.m_SingletonActionBindings.Array.data[0].m_Id
+      value: 287213e5-3b60-4eca-9547-973f356fe22a
+      objectReference: {fileID: 0}
+    - target: {fileID: 6672415020902361433, guid: b3860671b73b8c3498d6c341d9737159, type: 3}
+      propertyPath: cameras.Array.data[2].key.m_SingletonActionBindings.Array.data[0].m_Path
+      value: <Keyboard>/3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6672415020902361433, guid: b3860671b73b8c3498d6c341d9737159, type: 3}
+      propertyPath: cameras.Array.data[2].key.m_SingletonActionBindings.Array.data[0].m_Action
+      value: Key
+      objectReference: {fileID: 0}
+    - target: {fileID: 6672415020902361433, guid: b3860671b73b8c3498d6c341d9737159, type: 3}
+      propertyPath: cameras.Array.data[2].key.m_SingletonActionBindings.Array.data[0].m_Interactions
+      value: Press(behavior=2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 9005819594351571751, guid: b3860671b73b8c3498d6c341d9737159, type: 3}
+      propertyPath: cameras.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 9005819594351571751, guid: b3860671b73b8c3498d6c341d9737159, type: 3}
+      propertyPath: cameras.Array.data[2]
+      value: 
+      objectReference: {fileID: 1576623152}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b3860671b73b8c3498d6c341d9737159, type: 3}
 --- !u!20 &1576623152 stripped
