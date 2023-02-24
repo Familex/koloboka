@@ -62,6 +62,8 @@ crashlytics-build.properties
 Release/
 
 
-#### Blender temp files
+#### Blender files
+*.blend
+*.blend.meta
 *.blend1
 *.blend1.meta
