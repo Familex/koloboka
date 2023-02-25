@@ -6,8 +6,12 @@ namespace Player
     {
         [SerializeField] private float force = 10;
         [SerializeField] private float rotationSpeed = 15;
-        [SerializeField] private Camera[] cameras;
         [SerializeField] private Rigidbody playerRigidbody;
+        [SerializeField] private Transform firstView;
+        
+        [SerializeField] private Camera[] cameras;
+
+        private Vector3 LookVec => firstView.forward;
         
         private ControlActions _controlActions;
         private int _currentCamera;
@@ -63,28 +67,15 @@ namespace Player
             
             // Move and rotate
             {
-                var deltaForce = new Vector3();
-                var deltaRotate = new Vector3();
-                var rotation = playerRigidbody.transform.rotation;
-                var rotationX = rotation.x;
-                var rotationY = rotation.y;
-                var forward = new Vector3(
-                    Mathf.Sin(rotationY + rotationX),
-                    0,
-                    Mathf.Cos(rotationY + rotationX)
-                );
-
                 var dPad = _controlActions.gameplay.move.ReadValue<Vector2>();
-
-                deltaForce += forward * dPad.y;
-                deltaRotate.y += dPad.x * rotationSpeed;
-
-                deltaForce *= force;
+                
+                var deltaForce = LookVec * dPad.y * force;
+                var deltaRotate = dPad.x * rotationSpeed;
 
                 Debug.DrawRay(playerRigidbody.transform.position, deltaForce, Color.magenta);
                 
                 playerRigidbody.AddForce(deltaForce);
-                playerRigidbody.transform.Rotate(deltaRotate);
+                playerRigidbody.transform.Rotate(0, deltaRotate, 0);
             }
         }
     }

@@ -62,10 +62,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   force: 10
   rotationSpeed: 1
+  playerRigidbody: {fileID: 6423021948472507405}
+  firstView: {fileID: 6423021947370796906}
   cameras:
   - {fileID: 6423021947370796909}
   - {fileID: 6423021947772993418}
-  playerRigidbody: {fileID: 6423021948472507405}
 --- !u!1 &6423021947370796911
 GameObject:
   m_ObjectHideFlags: 0
