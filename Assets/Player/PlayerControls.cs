@@ -4,42 +4,22 @@ namespace Player
 {
     public class PlayerControls : MonoBehaviour
     {
+        /* ---- Inspector things ---- */
         [SerializeField] private float force = 10;
         [SerializeField] private float rotationSpeed = 15;
         [SerializeField] private Rigidbody playerRigidbody;
         [SerializeField] private Transform firstView;
         
-        [SerializeField] private Camera[] cameras;
-
-        private Vector3 LookVec => firstView.forward;
-        
+        /* ---- Private mutables ---- */
         private ControlActions _controlActions;
-        private int _currentCamera;
-
-        private void TurnOnCurrent()
-        {
-            foreach (var cam in cameras)
-            {
-                cam.enabled = false;
-            }
-
-            cameras[_currentCamera].enabled = true;
-        }
         
+        /* ---- Private properties ---- */
+        private Vector3 LookVec => firstView.forward;
+
+        /* ---- Unity overrides ---- */
         private void Awake()
         {
             _controlActions = new ControlActions();
-
-            if (cameras.Length > 0)
-            {
-                _controlActions.debug.camerachange.performed += ctx =>
-                {
-                    _currentCamera += Mathf.RoundToInt(ctx.ReadValue<float>());
-                    if (_currentCamera < 0) _currentCamera = cameras.Length - 1;
-                    if (_currentCamera >= cameras.Length) _currentCamera = 0;
-                    TurnOnCurrent();
-                };
-            }
         }
 
         public void OnEnable()
@@ -52,31 +32,28 @@ namespace Player
             _controlActions.Disable();
         }
 
-        private void Start()
-        {
-            if (cameras.Length > 0)
-            {
-                _currentCamera = 0;
-                TurnOnCurrent();
-            }
-        }
-
         private void Update()
         {
-            // Debug.Log(_rigidbody.rotation.eulerAngles);
-            
             // Move and rotate
             {
                 var dPad = _controlActions.gameplay.move.ReadValue<Vector2>();
-                
-                var deltaForce = LookVec * dPad.y * force;
-                var deltaRotate = dPad.x * rotationSpeed;
-
-                Debug.DrawRay(playerRigidbody.transform.position, deltaForce, Color.magenta);
-                
-                playerRigidbody.AddForce(deltaForce);
-                playerRigidbody.transform.Rotate(0, deltaRotate, 0);
+                Move(dPad.y);
+                Rotate(dPad.x);
             }
+        }
+        
+        /* ---- Private methods ---- */
+        private void Move(float y)
+        {
+            var deltaForce = LookVec * (y * force);
+            Debug.DrawRay(playerRigidbody.transform.position, deltaForce, Color.magenta);
+            playerRigidbody.AddForce(deltaForce);
+        }
+
+        private void Rotate(float x)
+        {
+            var deltaRotate = x * rotationSpeed;
+            playerRigidbody.transform.Rotate(0, deltaRotate, 0);
         }
     }
 }
