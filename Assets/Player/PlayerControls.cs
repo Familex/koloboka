@@ -5,7 +5,7 @@ namespace Player
     public class PlayerControls : MonoBehaviour
     {
         /* ---- Inspector things ---- */
-        [SerializeField] private float force = 10;
+        [SerializeField] private float force = 15;
         [SerializeField] private float rotationSpeed = 15;
         [SerializeField] private Rigidbody playerRigidbody;
         [SerializeField] private Transform firstView;
@@ -32,7 +32,7 @@ namespace Player
             _controlActions.Disable();
         }
 
-        private void Update()
+        private void FixedUpdate()
         {
             // Move and rotate
             {
@@ -52,8 +52,7 @@ namespace Player
 
         private void Rotate(float x)
         {
-            var deltaRotate = x * rotationSpeed;
-            playerRigidbody.transform.Rotate(0, deltaRotate, 0);
+            playerRigidbody.transform.Rotate(0, rotationSpeed * x, 0);
         }
     }
 }
