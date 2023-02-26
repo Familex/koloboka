@@ -1,8 +1,4 @@
-using System;
-using System.Numerics;
 using UnityEngine;
-using Vector2 = UnityEngine.Vector2;
-using Vector3 = UnityEngine.Vector3;    // Rider spam this boilerplate every time –> remove
 
 namespace Player
 {
@@ -11,8 +7,10 @@ namespace Player
         /* ---- Private types ---- */
         private enum MoveType
         {
-            GlobalAxis,    
-            ViewAxisAndRotate
+            // Problems in comments
+            GlobalAxis,   // Minimap view only    
+            ViewAxisAndRotate,  // Hard to determine top and bottom
+            ViewAxisAndRotateWithUpsideDownMemorize  // Hard to start brake instantly
         }
         
         /* ---- Inspector things ---- */
@@ -20,14 +18,20 @@ namespace Player
         [SerializeField] private float rotationSpeed = 15;
         [SerializeField] private Rigidbody playerRigidbody;
         [SerializeField] private Transform firstView;
+        [SerializeField] private MoveType currMoveType = MoveType.ViewAxisAndRotateWithUpsideDownMemorize;
         
         /* ---- Private mutables ---- */
         private ControlActions _controlActions;
+        /// <summary>
+        /// Remembers the rigidbody state at the first triggering of user input. <br/>
+        /// Null if is no user input; true if not upside down. <br/>
+        /// </summary>
+        private bool? _isNotUpsideDownMemorize;
         
         /* ---- Private properties ---- */
         private Vector3 Forward => firstView.forward;
         private Vector3 Up => firstView.up;
-        private static MoveType CurrMoveType => MoveType.ViewAxisAndRotate;
+        private bool IsNotUpsideDown => Vector3.Dot(Up, Vector3.up) > 0;
         
         /* ---- Unity overrides ---- */
         private void Awake()
@@ -47,10 +51,24 @@ namespace Player
 
         private void FixedUpdate()
         {
+            Debug.Log(_isNotUpsideDownMemorize);
+            
             // Move and rotate
             {
                 var dPad = _controlActions.gameplay.move.ReadValue<Vector2>();
-                switch (CurrMoveType)
+                // Variables
+                {
+                    if (Mathf.Abs(dPad.y) < 1E-5)
+                    {
+                        _isNotUpsideDownMemorize = null;
+                    }
+                    else if (_isNotUpsideDownMemorize is null)
+                    {
+                        _isNotUpsideDownMemorize = IsNotUpsideDown;
+                    }
+                }
+                // Move
+                switch (currMoveType)
                 {
                     case MoveType.GlobalAxis:
                     {
@@ -62,23 +80,45 @@ namespace Player
                     case MoveType.ViewAxisAndRotate:
                     {
                         Rotate(dPad.x);
-                        Move(dPad.y, null);
+                        MoveIntoView(dPad.y);
+                    }
+                        break;
+
+                    case MoveType.ViewAxisAndRotateWithUpsideDownMemorize:
+                    {
+                        Rotate(dPad.x);
+                        MoveIntoView(dPad.y, (_isNotUpsideDownMemorize ?? false) != IsNotUpsideDown);
                     }
                         break;
                     
                     default:
-                        throw new ArgumentOutOfRangeException();    // 😁
+                        throw new System.ArgumentOutOfRangeException();    // 😁
                 }
             }
         }
         
         /* ---- Private methods ---- */
-        private void Move(float y, Vector3? forward)
+        private void Move(float y, Vector3 forward)
+        {
+            var playerPos = playerRigidbody.transform.position; // Rider's fad
+            
+            var direction = Vector3.Project(-playerPos, forward).normalized;
+            
+            Debug.DrawRay(
+                playerPos,
+                direction * 100, 
+                Color.magenta
+            );
+            
+            playerRigidbody.AddForce( direction * (y * force) );
+        }
+
+        private void MoveIntoView(float y, bool reverse = false)
         {
             var direction =
-                forward.HasValue 
-                ? Vector3.Project(-playerRigidbody.transform.position, forward.Value).normalized
-                : Forward;
+                reverse
+                    ? -Forward
+                    : Forward;
             
             Debug.DrawRay(
                 playerRigidbody.transform.position,
