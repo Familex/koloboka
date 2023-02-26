@@ -51,8 +51,6 @@ namespace Player
 
         private void FixedUpdate()
         {
-            Debug.Log(_isNotUpsideDownMemorize);
-            
             // Move and rotate
             {
                 var dPad = _controlActions.gameplay.move.ReadValue<Vector2>();
