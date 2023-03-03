@@ -70,33 +70,39 @@ namespace Player
                 {
                     case MoveType.GlobalAxis:
                     {
-                        Move(dPad.y, Vector3.forward);
-                        Move(dPad.x, Vector3.right);
+                        Move(GetMove(dPad.y, Vector3.forward));
+                        Move(GetMove(dPad.x, Vector3.right));
                     }
                         break;
                     
                     case MoveType.ViewAxisAndRotate:
                     {
                         Rotate(dPad.x);
-                        MoveIntoView(dPad.y);
+                        Move(GetMoveIntoView(dPad.y));
                     }
                         break;
 
                     case MoveType.ViewAxisAndRotateWithUpsideDownMemorize:
                     {
                         Rotate(dPad.x);
-                        MoveIntoView(dPad.y, (_isNotUpsideDownMemorize ?? false) != IsNotUpsideDown);
+                        Move(GetMoveIntoView(dPad.y, (_isNotUpsideDownMemorize ?? false) != IsNotUpsideDown));
                     }
                         break;
                     
                     default:
-                        throw new System.ArgumentOutOfRangeException();    // 😁
+                        throw new System.ArgumentOutOfRangeException("😁");
                 }
             }
         }
         
         /* ---- Private methods ---- */
-        private void Move(float y, Vector3 forward)
+        /// <summary>
+        /// Get move vector with the given direction and magnitude. <br/>
+        /// </summary>
+        /// <param name="y">Magnitude</param>
+        /// <param name="forward">Direction</param>
+        /// <returns>Move vector</returns>
+        private Vector3 GetMove(float y, Vector3 forward)
         {
             var playerPos = playerRigidbody.transform.position; // Rider's fad
             
@@ -108,10 +114,16 @@ namespace Player
                 Color.magenta
             );
             
-            playerRigidbody.AddForce( direction * (y * force) );
+            return direction * (y * force);
         }
 
-        private void MoveIntoView(float y, bool reverse = false)
+        /// <summary>
+        /// Get move into view vector <br/>
+        /// </summary>
+        /// <param name="y">Magnitude</param>
+        /// <param name="reverse">Reverse the direction</param>
+        /// <returns>Move vector</returns>
+        private Vector3 GetMoveIntoView(float y, bool reverse = false)
         {
             var direction =
                 reverse
@@ -124,9 +136,22 @@ namespace Player
                 Color.magenta
             );
             
-            playerRigidbody.AddForce( direction * (y * force) );
+            return direction * (y * force);
         }
 
+        /// <summary>
+        /// Project the given vector on the xOy plane and add it to the rigidbody. <br/>
+        /// </summary>
+        /// <param name="move">Force vector</param>
+        private void Move(Vector3 move)
+        {
+            playerRigidbody.AddForce(Vector3.ProjectOnPlane(move, Vector3.up));
+        }
+        
+        /// <summary>
+        /// Rotate the player <br/>
+        /// </summary>
+        /// <param name="x">Magnitude</param>
         private void Rotate(float x)
         {
             playerRigidbody.transform.Rotate(0, rotationSpeed * x, 0);
