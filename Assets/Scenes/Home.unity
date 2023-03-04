@@ -130,6 +130,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4732175685974753123, guid: b3860671b73b8c3498d6c341d9737159, type: 3}
+      propertyPath: cameras.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4732175685974753123, guid: b3860671b73b8c3498d6c341d9737159, type: 3}
+      propertyPath: cameras.Array.data[2]
+      value: 
+      objectReference: {fileID: 185747277}
     - target: {fileID: 6423021946500560526, guid: b3860671b73b8c3498d6c341d9737159, type: 3}
       propertyPath: m_Name
       value: Player
@@ -178,9 +186,49 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6423021948073423250, guid: b3860671b73b8c3498d6c341d9737159, type: 3}
+      propertyPath: m_TargetTexture
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 6423021948073423252, guid: b3860671b73b8c3498d6c341d9737159, type: 3}
+      propertyPath: height
+      value: 125
+      objectReference: {fileID: 0}
+    - target: {fileID: 6423021948073423255, guid: b3860671b73b8c3498d6c341d9737159, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 6423021948073423255, guid: b3860671b73b8c3498d6c341d9737159, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 6423021948073423255, guid: b3860671b73b8c3498d6c341d9737159, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6423021948073423255, guid: b3860671b73b8c3498d6c341d9737159, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6423021948073423255, guid: b3860671b73b8c3498d6c341d9737159, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 90
+      objectReference: {fileID: 0}
+    - target: {fileID: 6423021948073423255, guid: b3860671b73b8c3498d6c341d9737159, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6423021948073423255, guid: b3860671b73b8c3498d6c341d9737159, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 9005819594351571751, guid: b3860671b73b8c3498d6c341d9737159, type: 3}
       propertyPath: force
-      value: 50
+      value: 500
+      objectReference: {fileID: 0}
+    - target: {fileID: 9005819594351571751, guid: b3860671b73b8c3498d6c341d9737159, type: 3}
+      propertyPath: currMoveType
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b3860671b73b8c3498d6c341d9737159, type: 3}
@@ -242,7 +290,7 @@ Terrain:
   m_TreeBillboardDistance: 50
   m_TreeCrossFadeLength: 5
   m_TreeMaximumFullLODCount: 50
-  m_DetailObjectDistance: 80
+  m_DetailObjectDistance: 250
   m_DetailObjectDensity: 1
   m_HeightmapPixelError: 5
   m_SplatMapDistance: 1000
@@ -552,7 +600,7 @@ Terrain:
   m_TreeBillboardDistance: 50
   m_TreeCrossFadeLength: 5
   m_TreeMaximumFullLODCount: 50
-  m_DetailObjectDistance: 80
+  m_DetailObjectDistance: 250
   m_DetailObjectDensity: 1
   m_HeightmapPixelError: 5
   m_SplatMapDistance: 1000
@@ -572,6 +620,11 @@ Terrain:
   m_GroupingID: 0
   m_RenderingLayerMask: 257
   m_AllowAutoConnect: 1
+--- !u!20 &185747277 stripped
+Camera:
+  m_CorrespondingSourceObject: {fileID: 6423021948073423250, guid: b3860671b73b8c3498d6c341d9737159, type: 3}
+  m_PrefabInstance: {fileID: 105671114}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1214968651
 GameObject:
   m_ObjectHideFlags: 0
@@ -630,7 +683,7 @@ Terrain:
   m_TreeBillboardDistance: 50
   m_TreeCrossFadeLength: 5
   m_TreeMaximumFullLODCount: 50
-  m_DetailObjectDistance: 80
+  m_DetailObjectDistance: 250
   m_DetailObjectDensity: 1
   m_HeightmapPixelError: 5
   m_SplatMapDistance: 1000
@@ -708,7 +761,7 @@ Terrain:
   m_TreeBillboardDistance: 50
   m_TreeCrossFadeLength: 5
   m_TreeMaximumFullLODCount: 50
-  m_DetailObjectDistance: 80
+  m_DetailObjectDistance: 250
   m_DetailObjectDensity: 1
   m_HeightmapPixelError: 5
   m_SplatMapDistance: 1000
