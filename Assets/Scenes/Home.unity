@@ -226,6 +226,10 @@ PrefabInstance:
       propertyPath: force
       value: 0.03
       objectReference: {fileID: 0}
+    - target: {fileID: 9005819594351571751, guid: b3860671b73b8c3498d6c341d9737159, type: 3}
+      propertyPath: restoreRotation
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b3860671b73b8c3498d6c341d9737159, type: 3}
 --- !u!1 &111106778

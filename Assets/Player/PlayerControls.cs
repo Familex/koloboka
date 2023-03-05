@@ -19,6 +19,9 @@ namespace Player
         [SerializeField] private Rigidbody playerRigidbody;
         [SerializeField] private Transform firstView;
         [SerializeField] private MoveType currMoveType = MoveType.ViewAxisAndRotateWithUpsideDownMemorize;
+        [SerializeField] private float brakeCoefficient = 0.95f; 
+        [SerializeField] private float restoreRotationSpeed = 0.05f;
+        [SerializeField, Utils.Unstable] private bool iceEffect = false;
         
         /* ---- Private mutables ---- */
         private ControlActions _controlActions;
@@ -51,9 +54,11 @@ namespace Player
 
         private void FixedUpdate()
         {
+            var dPad = _controlActions.gameplay.move.ReadValue<Vector2>();
+            var inputProvided = dPad.magnitude > 1E-5;
+            
             // Move and rotate
             {
-                var dPad = _controlActions.gameplay.move.ReadValue<Vector2>();
                 // Variables
                 {
                     if (Mathf.Abs(dPad.y) < 1E-5)
@@ -92,6 +97,21 @@ namespace Player
                     default:
                         throw new System.ArgumentOutOfRangeException("😁");
                 }
+            }
+            
+            // gradually stop
+            if (!inputProvided) {
+                playerRigidbody.velocity *= brakeCoefficient;
+            }
+
+            // gradually restore rotation
+            if (iceEffect || !inputProvided) {
+                var rotation = playerRigidbody.transform.rotation;
+                playerRigidbody.transform.rotation = Quaternion.Lerp(
+                    rotation,
+                    Quaternion.Euler(0, rotation.eulerAngles.y, 0),
+                    restoreRotationSpeed
+                );
             }
         }
         
