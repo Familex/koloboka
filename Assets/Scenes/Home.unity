@@ -148,7 +148,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6423021946500560527, guid: b3860671b73b8c3498d6c341d9737159, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 304.99
+      value: 140.1
       objectReference: {fileID: 0}
     - target: {fileID: 6423021946500560527, guid: b3860671b73b8c3498d6c341d9737159, type: 3}
       propertyPath: m_LocalPosition.y
@@ -156,7 +156,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6423021946500560527, guid: b3860671b73b8c3498d6c341d9737159, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 136.3
+      value: 414.6
       objectReference: {fileID: 0}
     - target: {fileID: 6423021946500560527, guid: b3860671b73b8c3498d6c341d9737159, type: 3}
       propertyPath: m_LocalRotation.w
@@ -186,17 +186,9 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 6423021947772993419, guid: b3860671b73b8c3498d6c341d9737159, type: 3}
-      propertyPath: rotationInterpolation
-      value: 500
-      objectReference: {fileID: 0}
     - target: {fileID: 6423021948073423250, guid: b3860671b73b8c3498d6c341d9737159, type: 3}
       propertyPath: m_TargetTexture
       value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 6423021948073423252, guid: b3860671b73b8c3498d6c341d9737159, type: 3}
-      propertyPath: height
-      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 6423021948073423255, guid: b3860671b73b8c3498d6c341d9737159, type: 3}
       propertyPath: m_LocalRotation.w
@@ -225,10 +217,6 @@ PrefabInstance:
     - target: {fileID: 6423021948073423255, guid: b3860671b73b8c3498d6c341d9737159, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 9005819594351571751, guid: b3860671b73b8c3498d6c341d9737159, type: 3}
-      propertyPath: force
-      value: 0.03
       objectReference: {fileID: 0}
     - target: {fileID: 9005819594351571751, guid: b3860671b73b8c3498d6c341d9737159, type: 3}
       propertyPath: restoreRotation
@@ -267,7 +255,7 @@ Light:
   m_Type: 1
   m_Shape: 0
   m_Color: {r: 1, g: 0.95686275, b: 0.8392157, a: 1}
-  m_Intensity: 100000
+  m_Intensity: 43218.15
   m_Range: 10
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
@@ -310,7 +298,7 @@ Light:
   m_LightShadowCasterMode: 2
   m_AreaSize: {x: 0.5, y: 0.5}
   m_BounceIntensity: 1
-  m_ColorTemperature: 3965
+  m_ColorTemperature: 12225
   m_UseColorTemperature: 1
   m_BoundingSphereOverride: {x: 1.02e-43, y: 0, z: 0, w: 0.00587954}
   m_UseBoundingSphereOverride: 0
@@ -344,7 +332,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7a68c43fe1f2a47cfa234b5eeaa98012, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Intensity: 100000
+  m_Intensity: 43218.15
   m_EnableSpotReflector: 1
   m_LuxAtDistance: 1
   m_InnerSpotPercent: 0
