@@ -64,5 +64,3 @@ GraphicsSettings:
   m_LogWhenShaderIsCompiled: 0
   m_SRPDefaultSettings:
     UnityEngine.Rendering.HighDefinition.HDRenderPipeline: {fileID: 11400000, guid: 5586c80e2e953254d8ffe85808baf2c0, type: 2}
-  m_CameraRelativeLightCulling: 0
-  m_CameraRelativeShadowCulling: 0
