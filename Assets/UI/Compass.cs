@@ -1,14 +1,15 @@
+using Player;
 using UnityEngine;
 
 namespace UI
 {
-    public class Compas : MonoBehaviour
+    public class Compass : MonoBehaviour
     {
-        [SerializeField] private Transform target;
-
+        [SerializeField] private PlayerControls controls;
+        
         private void Update()
         {
-            transform.eulerAngles = -target.eulerAngles.y * Vector3.forward;
+            transform.eulerAngles = -controls.RelativeY * Vector3.forward;
         }
     }
 }

@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 113487240}
   - component: {fileID: 113487241}
   m_Layer: 5
-  m_Name: Compas
+  m_Name: Compass
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -50,7 +50,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f04e851926a533c0f9981fb028a1499e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _target: {fileID: 0}
+  target: {fileID: 0}
 --- !u!1 &349862283
 GameObject:
   m_ObjectHideFlags: 0

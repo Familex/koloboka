@@ -36,6 +36,19 @@ namespace Player
         private Vector3 Up => firstView.up;
         private bool IsNotUpsideDown => Vector3.Dot(Up, Vector3.up) > 0;
         
+        /* ---- Public properties ---- */
+        public float RelativeY
+        {
+            get
+            {
+                // FIXME return value is not correct
+                var result = playerRigidbody.transform.rotation.eulerAngles;
+                var relativeResult = IsNotUpsideDown ? result : -result;
+                // Debug.Log(relativeResult);
+                return relativeResult.y;
+            }
+        }
+
         /* ---- Unity overrides ---- */
         private void Awake()
         {
