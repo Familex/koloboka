@@ -41,11 +41,9 @@ namespace Player
         {
             get
             {
-                // FIXME return value is not correct
                 var result = playerRigidbody.transform.rotation.eulerAngles;
-                var relativeResult = IsNotUpsideDown ? result : -result;
-                // Debug.Log(relativeResult);
-                return relativeResult.y;
+                var reverse = (_isNotUpsideDownMemorize ?? true) != IsNotUpsideDown;
+                return result.y + (reverse ? 180 : 0);
             }
         }
 
