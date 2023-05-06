@@ -751,6 +751,7 @@ GameObject:
   - component: {fileID: 8254231873182309431}
   - component: {fileID: 681794289700570162}
   - component: {fileID: 4821882114402606340}
+  - component: {fileID: 1566288818909470146}
   m_Layer: 0
   m_Name: kolobok
   m_TagString: Untagged
@@ -853,3 +854,21 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &1566288818909470146
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7605471840061013474}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 59011839420d65340a0a06221482f6e5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemyPrefabs:
+  - {fileID: 5879474225488709129, guid: 54c71c31560922447826106ae0916ca0, type: 3}
+  maxEnemies: 3
+  initialSpawnRange: 15
+  minSpawnTime: 60
+  maxSpawnTime: 360

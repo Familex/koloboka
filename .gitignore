@@ -65,7 +65,7 @@ crashlytics-build.properties
 
 #### Deploy folder
 Release/
-
+*.tgz
 
 #### Blender files
 *.blend

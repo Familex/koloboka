@@ -4,8 +4,8 @@ using UnityEngine.AI;
 namespace Enemy {
     [RequireComponent(typeof(NavMeshAgent))]
     public class MoveTo : MonoBehaviour {
-        /* ---- Inspector things ---- */
-        [SerializeField] private Transform goal;
+        /* public fields */
+        public Transform goal;
         
         /* ---- Private constants ---- */
         private NavMeshAgent _navMeshAgent;
@@ -16,8 +16,11 @@ namespace Enemy {
             _navMeshAgent = GetComponent<NavMeshAgent>();
         }
 
-        private void Update () {
-            _navMeshAgent.destination = goal.position; 
+        private void Update()
+        {
+            if (goal == null) return;
+        
+            _navMeshAgent.destination = goal.position;
         }
     }
 }
