@@ -2,8 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
-using Quaternion = UnityEngine.Quaternion;
-using Vector3 = UnityEngine.Vector3;
+using UnityEngine.Diagnostics;
 
 namespace Player
 {
@@ -34,6 +33,11 @@ namespace Player
                         Quaternion.Euler(Random.insideUnitCircle));
                     enemy.GetComponent<Enemy.Enemy>().OnDeathEvent += () => _enemiesCount--;
                     enemy.GetComponent<Enemy.MoveTo>().goal = transform;
+                    var sphereCollider = enemy.AddComponent<Enemy.SphereCollider>();
+                    sphereCollider.target = transform;
+                    sphereCollider.radius = .6f;
+                    sphereCollider.OnCollide +=
+                        () => UnityEngine.Diagnostics.Utils.ForceCrash(ForcedCrashCategory.Abort);
                     _enemiesCount++;
                 }
                 
