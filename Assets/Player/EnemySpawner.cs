@@ -15,9 +15,11 @@ namespace Player
         [SerializeField] private float maxSpawnTime = 10f;
         
         private uint _enemiesCount;
+        private Player _player;
         
         private void Start()
         {
+            _player = GetComponentInParent<Player>();
             StartCoroutine(SpawnEnemy());
         }
 
@@ -37,7 +39,7 @@ namespace Player
                     sphereCollider.target = transform;
                     sphereCollider.radius = .6f;
                     sphereCollider.OnCollide +=
-                        () => UnityEngine.Diagnostics.Utils.ForceCrash(ForcedCrashCategory.Abort);
+                        () => _player.OnDeath();
                     _enemiesCount++;
                 }
                 
