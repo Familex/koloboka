@@ -124,6 +124,12 @@ namespace Player
                     restoreRotationSpeed
                 );
             }
+            
+            // gradually restore angular velocity (prevent infinite rotation)
+            if (!inputProvided)
+            {
+                playerRigidbody.angularVelocity *= brakeCoefficient;
+            }
         }
         
         /* ---- Private methods ---- */
