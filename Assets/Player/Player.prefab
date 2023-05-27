@@ -894,7 +894,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyPrefabs:
-  - {fileID: 5879474225488709129, guid: 54c71c31560922447826106ae0916ca0, type: 3}
+  - {fileID: 8887563754013340182, guid: 589b53328c33fe44d8f95e669f89693f, type: 3}
   maxEnemies: 3
   initialSpawnRange: 15
   minSpawnTime: 60
