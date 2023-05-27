@@ -37,7 +37,6 @@ namespace Enemy
         {
             while (true)
             {
-                Debug.Log("Start jump");
                 _isGrounded = false;
                 SetAgentEnabled(false);
                 _rigidbody.isKinematic = false;
@@ -45,7 +44,6 @@ namespace Enemy
                 _rigidbody.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
                 yield return new WaitForSeconds(_stateDuration[State.InJump]);
                 yield return new WaitUntil(() => _isGrounded);
-                Debug.Log("Jump ended");
                 SetAgentEnabled(true);
                 yield return new WaitForSeconds(_stateDuration[State.Idle]);
                 // some after idle logic
