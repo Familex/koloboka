@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 9005819594351571751}
   - component: {fileID: 4732175685974753123}
   - component: {fileID: 9158077893990724530}
+  - component: {fileID: 2104000907740913538}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -83,6 +84,19 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a3c3bb7022dd4e1bbfefe3e3bcd12ae3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mainMenuSceneName: Menu
+--- !u!114 &2104000907740913538
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6423021946500560526}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 12eaa4c94c615d441bf49ff859daa0bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &6423021947370796911
@@ -866,7 +880,7 @@ Rigidbody:
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 0
-  m_CollisionDetection: 0
+  m_CollisionDetection: 2
 --- !u!114 &1566288818909470146
 MonoBehaviour:
   m_ObjectHideFlags: 0

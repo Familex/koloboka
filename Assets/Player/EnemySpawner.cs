@@ -2,7 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
-using UnityEngine.Diagnostics;
 
 namespace Player
 {
@@ -34,7 +33,7 @@ namespace Player
                     var enemy = Instantiate(enemyPrefabs[Random.Range(0, enemyPrefabs.Count)], hit.position + Vector3.up * 2,
                         Quaternion.Euler(Random.insideUnitCircle));
                     enemy.GetComponent<Enemy.Enemy>().OnDeathEvent += () => _enemiesCount--;
-                    enemy.GetComponent<Enemy.MoveTo>().goal = transform;
+                    enemy.GetComponentInChildren<Enemy.MoveAndJumpingAround>().goal = transform;
                     var sphereCollider = enemy.AddComponent<Enemy.SphereCollider>();
                     sphereCollider.target = transform;
                     sphereCollider.radius = .6f;

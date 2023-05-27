@@ -18,9 +18,12 @@ namespace Enemy {
 
         private void Update()
         {
-            if (goal == null) return;
+            if (goal is null || _navMeshAgent.isStopped) return;
         
+            Debug.Log("MoveTo.Update()");
             _navMeshAgent.destination = goal.position;
+            _navMeshAgent.updatePosition = true;
+            _navMeshAgent.updateRotation = true;
         }
     }
 }
