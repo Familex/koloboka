@@ -5,6 +5,9 @@ using UnityEngine.AI;
 
 namespace Player
 {
+    /// <summary>
+    /// MonoBehaviour component for enemy spawning.
+    /// </summary>
     public class EnemySpawner : MonoBehaviour
     {
         [SerializeField] private List<GameObject> enemyPrefabs;
@@ -14,14 +17,21 @@ namespace Player
         [SerializeField] private float maxSpawnTime = 10f;
         
         private uint _enemiesCount;
-        private Player _player;
         
+        /// <summary>
+        /// Start infinite coroutine for enemy spawning.
+        /// </summary>
         private void Start()
         {
-            _player = GetComponentInParent<Player>();
             StartCoroutine(SpawnEnemy());
         }
 
+        /// <summary>
+        /// Infinite coroutine for enemy spawning.
+        /// Spawns random enemy from <see cref="enemyPrefabs"/> at random position in <see cref="initialSpawnRange"/>
+        /// radius.
+        /// </summary>
+        /// <returns>IEnumerator for coroutine</returns>
         private IEnumerator SpawnEnemy()
         {
             while (true)
@@ -34,11 +44,6 @@ namespace Player
                         Quaternion.Euler(Random.insideUnitCircle));
                     enemy.GetComponent<Enemy.Enemy>().OnDeathEvent += () => _enemiesCount--;
                     enemy.GetComponentInChildren<Enemy.MoveAndJumpingAround>().goal = transform;
-                    var sphereCollider = enemy.AddComponent<Enemy.SphereCollider>();
-                    sphereCollider.target = transform;
-                    sphereCollider.radius = .6f;
-                    sphereCollider.OnCollide +=
-                        () => _player.OnDeath();
                     _enemiesCount++;
                 }
                 

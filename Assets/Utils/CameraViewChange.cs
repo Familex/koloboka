@@ -3,6 +3,9 @@ using UnityEngine.InputSystem;
 
 namespace Utils
 {
+    /// <summary>
+    /// MonoBehaviour that allows switching between cameras with a button.
+    /// </summary>
     public class CameraViewChange : MonoBehaviour
     {
         /* ---- Inspector things ---- */
@@ -13,6 +16,9 @@ namespace Utils
         private int _currentCamera;
 
         /* ---- Unity overrides ---- */
+        /// <summary>
+        /// Set up actions callbacks.
+        /// </summary>
         private void Awake()
         {
             if (cameras.Length > 0)
@@ -27,6 +33,9 @@ namespace Utils
             }
         }
         
+        /// <summary>
+        /// Turn on the first camera.
+        /// </summary>
         private void Start()
         {
             if (cameras.Length > 0)
@@ -36,17 +45,26 @@ namespace Utils
             }
         }
 
+        /// <summary>
+        /// Enable the action.
+        /// </summary>
         private void OnEnable()
         {
             camSwitch.action.Enable();
         }
 
+        /// <summary>
+        /// Disable the action.
+        /// </summary>
         private void OnDisable()
         {
             camSwitch.action.Disable();
         }
 
         /* ---- Private methods ---- */
+        /// <summary>
+        /// Util method to turn on the current camera and turn off the others.
+        /// </summary>
         private void TurnOnCurrent()
         {
             foreach (var cam in cameras)

@@ -14,9 +14,10 @@ GameObject:
   - component: {fileID: 5961310080489245010}
   - component: {fileID: 6408809452782645238}
   - component: {fileID: 7322083249804130144}
+  - component: {fileID: 7530845159595198519}
   m_Layer: 0
   m_Name: Animal Enemy
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -114,3 +115,17 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 2534964839176971238, guid: f11d6e1f111fbd64a9038f0d1b513dfa, type: 3}
+--- !u!136 &7530845159595198519
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5879474225488709129}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  m_Radius: 1.6
+  m_Height: 4
+  m_Direction: 1
+  m_Center: {x: 0, y: 0.5, z: 0}

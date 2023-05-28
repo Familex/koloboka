@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 6423021946500560527}
   - component: {fileID: 9005819594351571751}
   - component: {fileID: 4732175685974753123}
-  - component: {fileID: 9158077893990724530}
   - component: {fileID: 2104000907740913538}
   m_Layer: 0
   m_Name: Player
@@ -74,19 +73,6 @@ MonoBehaviour:
   - {fileID: 6423021947370796909}
   - {fileID: 6423021947772993418}
   camSwitch: {fileID: 4756987954563398719, guid: 0c12bd4e8d19a2f45b5f0a11aafdbe9b, type: 3}
---- !u!114 &9158077893990724530
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6423021946500560526}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a3c3bb7022dd4e1bbfefe3e3bcd12ae3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  mainMenuSceneName: Menu
 --- !u!114 &2104000907740913538
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -779,6 +765,8 @@ GameObject:
   - component: {fileID: 681794289700570162}
   - component: {fileID: 4821882114402606340}
   - component: {fileID: 1566288818909470146}
+  - component: {fileID: 4209239621613442148}
+  - component: {fileID: 4174739286885419107}
   m_Layer: 0
   m_Name: kolobok
   m_TagString: Untagged
@@ -899,3 +887,28 @@ MonoBehaviour:
   initialSpawnRange: 15
   minSpawnTime: 60
   maxSpawnTime: 360
+--- !u!114 &4209239621613442148
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7605471840061013474}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 12eaa4c94c615d441bf49ff859daa0bd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &4174739286885419107
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7605471840061013474}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a3c3bb7022dd4e1bbfefe3e3bcd12ae3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mainMenuSceneName: Menu

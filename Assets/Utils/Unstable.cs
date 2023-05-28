@@ -1,5 +1,8 @@
 namespace Utils
 {
-    [System.AttributeUsage(System.AttributeTargets.All)]  
-    class Unstable : System.Attribute {}
+    /// <summary>
+    /// Helper attribute to mark unstable code.
+    /// </summary>
+    [System.AttributeUsage(System.AttributeTargets.All)]
+    internal class Unstable : System.Attribute {}
 }

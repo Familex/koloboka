@@ -4,9 +4,15 @@ using UnityEngine.AI;
 
 namespace Enemy
 {
+    /// <summary>
+    /// MonoBehaviour for enemy that can move and jump around.
+    /// </summary>
     [RequireComponent(typeof(NavMeshAgent), typeof(Rigidbody))]
     public class MoveAndJumpingAround : MonoBehaviour
     {
+        /// <summary>
+        /// Enemy states.
+        /// </summary>
         private enum State
         {
             Move,
@@ -25,6 +31,9 @@ namespace Enemy
         private NavMeshAgent _agent;
         private Animator _animator;
         private bool _isGrounded = true;
+        /// <summary>
+        /// Current state of enemy.
+        /// </summary>
         private State _state = State.Move;
         
         private static readonly int CanJumpAnimId = Animator.StringToHash("canJump");
@@ -32,6 +41,9 @@ namespace Enemy
         private static readonly int StartJumpAnimId = Animator.StringToHash("startJump");
         private static readonly int StartMoveAnimId = Animator.StringToHash("startMove");
 
+        /// <summary>
+        /// Init cooldown dict, get references to components and start jumping coroutine.
+        /// </summary>
         private void Start()
         {
             _stateDuration[State.Move] = 2;
@@ -44,6 +56,9 @@ namespace Enemy
             StartCoroutine(Jumping());
         }
 
+        /// <summary>
+        /// Update animator states.
+        /// </summary>
         private void Update()
         {
             if (_isGrounded)
@@ -52,6 +67,10 @@ namespace Enemy
             }
         }
 
+        /// <summary>
+        /// Coroutine for state machine.
+        /// </summary>
+        /// <returns>IEnumerator for coroutine</returns>
         private System.Collections.IEnumerator Jumping()
         {
             while (true)
@@ -80,6 +99,10 @@ namespace Enemy
             }
         }
 
+        /// <summary>
+        /// Checks "Ground" tag and set _isGrounded to true if it's true.
+        /// </summary>
+        /// <param name="collision">Object that collided with enemy</param>
         private void OnCollisionEnter(Collision collision)
         {
             if (collision.collider is not null && collision.collider.CompareTag("Ground"))
@@ -94,6 +117,10 @@ namespace Enemy
             }
         }
 
+        /// <summary>
+        /// Util method for setting agent's properties.
+        /// </summary>
+        /// <param name="val">Value to set</param>
         private void SetAgentEnabled(bool val)
         {
             _agent.updatePosition = val;

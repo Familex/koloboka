@@ -2,6 +2,9 @@ using UnityEngine;
 
 namespace Player
 {
+    /// <summary>
+    /// MonoBehaviour for player controls.
+    /// </summary>
     public class PlayerControls : MonoBehaviour
     {
         /* ---- Private types ---- */
@@ -48,21 +51,34 @@ namespace Player
         }
 
         /* ---- Unity overrides ---- */
+        /// <summary>
+        /// Create control actions.
+        /// </summary>
         private void Awake()
         {
             _controlActions = new ControlActions();
         }
 
+        /// <summary>
+        /// Enable control actions.
+        /// </summary>
         public void OnEnable()
         {
             _controlActions.Enable();
         }
 
+        /// <summary>
+        /// Disable control actions.
+        /// </summary>
         public void OnDisable()
         {
             _controlActions.Disable();
         }
 
+        /// <summary>
+        /// Make the player move according to the user input and current move strategy (<see cref="currMoveType"/>).
+        /// </summary>
+        /// <exception cref="System.ArgumentOutOfRangeException">If move strategy is not supported</exception>
         private void FixedUpdate()
         {
             var dPad = _controlActions.gameplay.move.ReadValue<Vector2>();
@@ -134,7 +150,7 @@ namespace Player
         
         /* ---- Private methods ---- */
         /// <summary>
-        /// Get move vector with the given direction and magnitude. <br/>
+        /// Get move vector with the given direction and magnitude.
         /// </summary>
         /// <param name="y">Magnitude</param>
         /// <param name="forward">Direction</param>
@@ -155,7 +171,7 @@ namespace Player
         }
 
         /// <summary>
-        /// Get move into view vector <br/>
+        /// Get move into view vector. 
         /// </summary>
         /// <param name="y">Magnitude</param>
         /// <param name="reverse">Reverse the direction</param>
@@ -177,7 +193,7 @@ namespace Player
         }
 
         /// <summary>
-        /// Project the given vector on the xOy plane and add it to the rigidbody. <br/>
+        /// Project the given vector on the xOy plane and add it to the rigidbody.
         /// </summary>
         /// <param name="move">Force vector</param>
         private void Move(Vector3 move)
@@ -186,7 +202,7 @@ namespace Player
         }
         
         /// <summary>
-        /// Rotate the player <br/>
+        /// Rotate the player.
         /// </summary>
         /// <param name="x">Magnitude</param>
         private void Rotate(float x)

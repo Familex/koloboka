@@ -2,6 +2,9 @@ using UnityEngine;
 
 namespace Player
 {
+    /// <summary>
+    /// MonoBehaviour for camera following player.
+    /// </summary>
     public class CameraFollow : MonoBehaviour
     {
         [SerializeField] private GameObject player;
@@ -12,11 +15,17 @@ namespace Player
         
         private Vector3 _prevPlayerPos;
 
+        /// <summary>
+        /// Get player position and save it.
+        /// </summary>
         private void Start()
         {
             _prevPlayerPos = player.transform.position;
         }
 
+        /// <summary>
+        /// Move camera to player.
+        /// </summary>
         private void FixedUpdate()
         {
             var playerPosition = player.transform.position;

@@ -922,6 +922,10 @@ PrefabInstance:
       propertyPath: initialSpawnRange
       value: 30
       objectReference: {fileID: 0}
+    - target: {fileID: 4174739286885419107, guid: b3860671b73b8c3498d6c341d9737159, type: 3}
+      propertyPath: mainMenuSceneName
+      value: Menu_Invalid
+      objectReference: {fileID: 0}
     - target: {fileID: 6423021946500560526, guid: b3860671b73b8c3498d6c341d9737159, type: 3}
       propertyPath: m_Name
       value: Player
